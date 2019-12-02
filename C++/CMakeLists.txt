@@ -7,6 +7,10 @@ project(SESync LANGUAGES C CXX VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON) # We require C++ 14
 
+# Set install locations (test)
+set(include-dest "include/${PROJECT_NAME}")
+set(lib-dest "lib/${PROJECT_NAME}")
+
 
 # Set build type to 'RelWithDebInfo' if one was not specified by the user
 if(NOT CMAKE_BUILD_TYPE)
@@ -113,15 +117,22 @@ ${SESync_SOURCE_DIR}/SESync.cpp
 
 # Build the SE-Sync library
 add_library(${PROJECT_NAME} SHARED ${SESync_HDRS} ${SESync_SRCS})
-target_include_directories(${PROJECT_NAME} PRIVATE ${SESync_PRIVATE_INCLUDES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${SESync_INCLUDES})
+target_include_directories(${PROJECT_NAME}
+  PRIVATE
+    "$<BUILD_INTERFACE:${SESync_PRIVATE_INCLUDES}>"
+  # PUBLIC
+    "$<INSTALL_INTERFACE:${include-dest}>")
+target_include_directories(${PROJECT_NAME}
+  PUBLIC
+    "$<BUILD_INTERFACE:${SESync_INCLUDES}>"
+    "$<INSTALL_INTERFACE:${include-dest}>")
 target_link_libraries(${PROJECT_NAME} Optimization ${BLAS_LIBRARIES} ${CHOLMOD_LIBRARIES} ${SPQR_LIBRARIES} ${M} ${LAPACK})
 
 if(OPENMP_FOUND)
 # Add additional compilation flags to enable OpenMP support
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS ${OpenMP_CXX_FLAGS})
 set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-fopenmp")
-target_link_libraries(${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME}) # What is this doing? Is this forgetting to link against OpenMP?
 endif()
 
 # BUILD EXAMPLE DRIVER
@@ -134,4 +145,10 @@ add_subdirectory(examples)
 export(PACKAGE ${PROJECT_NAME})
 # Create a configuration file for this project, so that it can be imported by other CMake projects
 export(TARGETS ${PROJECT_NAME} Optimization FILE ${PROJECT_NAME}Config.cmake)
+
+# Install SE-Sync library.
+install(TARGETS ${PROJECT_NAME} EXPORT "${PROJECT_NAME}Config" DESTINATION "${lib-dest}")
+install(FILES ${SESync_HDRS} DESTINATION "${include-dest}")
+install(TARGETS Optimization EXPORT "${PROJECT_NAME}Config" DESTINATION "${PROJECT_NAME}/cmake")
+
 
