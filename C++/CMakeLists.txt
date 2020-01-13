@@ -149,6 +149,6 @@ export(TARGETS ${PROJECT_NAME} Optimization FILE ${PROJECT_NAME}Config.cmake)
 # Install SE-Sync library.
 install(TARGETS ${PROJECT_NAME} EXPORT "${PROJECT_NAME}Config" DESTINATION "${lib-dest}")
 install(FILES ${SESync_HDRS} DESTINATION "${include-dest}")
-install(TARGETS Optimization EXPORT "${PROJECT_NAME}Config" DESTINATION "${PROJECT_NAME}/cmake")
+#install(TARGETS Optimization EXPORT "${PROJECT_NAME}Config" DESTINATION "${PROJECT_NAME}/cmake")
 
 
