@@ -1,6 +1,4 @@
-# dmrosen 18-May-2017
-
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.5)
 
 # PROJECT CONFIGURATION
 project(SESync LANGUAGES C CXX VERSION 1.0.0)
@@ -53,7 +51,8 @@ message(STATUS "")
 # SESYNC DEPENDENCIES
 
 # FIND EIGEN3
-set(EIGEN3_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Eigen)
+# set(EIGEN3_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Eigen)
+find_package(Eigen3 3.3 REQUIRED)
 message(STATUS "Eigen3 include directory: ${EIGEN3_INCLUDE_DIR}\n")
 
 
@@ -143,12 +142,11 @@ add_subdirectory(examples)
 
 # Add add entry for this project into CMake's package registry, so that this project can be found by other CMake projects
 export(PACKAGE ${PROJECT_NAME})
-# Create a configuration file for this project, so that it can be imported by other CMake projects
+# # Create a configuration file for this project, so that it can be imported by other CMake projects
 export(TARGETS ${PROJECT_NAME} Optimization FILE ${PROJECT_NAME}Config.cmake)
 
-# Install SE-Sync library.
-install(TARGETS ${PROJECT_NAME} EXPORT "${PROJECT_NAME}Config" DESTINATION "${lib-dest}")
-install(FILES ${SESync_HDRS} DESTINATION "${include-dest}")
-install(TARGETS Optimization EXPORT "${PROJECT_NAME}Config" DESTINATION "${PROJECT_NAME}/cmake")
-
+# # Install SE-Sync library.
+# install(TARGETS ${PROJECT_NAME} EXPORT "${PROJECT_NAME}Config" DESTINATION "${lib-dest}")
+# install(FILES ${SESync_HDRS} DESTINATION "${include-dest}")
+# # install(TARGETS Optimization EXPORT "${PROJECT_NAME}Config" DESTINATION "${PROJECT_NAME}/cmake")
 
