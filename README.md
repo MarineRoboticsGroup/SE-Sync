@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/david-m-rosen/SE-Sync.svg?branch=master)](https://travis-ci.org/david-m-rosen/SE-Sync)
+MRG's super decked out version: [![Build Status](http://mrg-beast.csail.mit.edu:8080/buildStatus/icon?job=dynamic-slam%2Fmaster)](http://mrg-beast.csail.mit.edu:8080/job/dynamic-slam/job/master/)
+Original SE-Sync status: [![Build Status](https://travis-ci.org/david-m-rosen/SE-Sync.svg?branch=master)](https://travis-ci.org/david-m-rosen/SE-Sync)
 
 # SE-Sync
 
