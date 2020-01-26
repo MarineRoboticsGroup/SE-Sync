@@ -35,6 +35,9 @@ struct RelativePoseMeasurement {
   /** Translational measurement precision */
   Scalar tau;
 
+  /** Full measurement covariance */
+  Matrix cov;
+
   /** Simple default constructor; does nothing */
   RelativePoseMeasurement() {}
 

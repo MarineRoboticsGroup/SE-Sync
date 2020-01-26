@@ -72,6 +72,13 @@ measurements_t read_g2o_file(const std::string &filename, size_t &num_poses) {
 
       measurement.kappa = I33;
 
+      Eigen::Matrix<Scalar, 3, 3> InfoMat;
+      InfoMat <<
+        I11, I12, I13,
+        I12, I22, I23,
+        I13, I23, I33;
+      measurement.cov = InfoMat.inverse();
+
     } else if (token == "EDGE_SE3:QUAT") {
       // This is a 3D pose measurement
 
