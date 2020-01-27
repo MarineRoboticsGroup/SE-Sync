@@ -13,6 +13,7 @@ pipeline {
                                     cp $keyfile ~/.ssh/id_rsa
                                     echo $GIT_SSH_COMMAND
                                     echo 'Anything that has to deal with authentication?'
+                                    git submodule update --init --recursive
                                     rm -r ~/.ssh/
 				'''
 				}
