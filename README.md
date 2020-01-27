@@ -1,4 +1,4 @@
-[![Build Status](http://mrg-beast.csail.mit.edu:8080/buildStatus/icon?job=SE-Sync)](http://mrg-beast.csail.mit.edu:8080/job/SE-Sync/) MRG's super decked out version
+[![Build Status](http://mrg-beast.csail.mit.edu:8080/buildStatus/icon?job=SE-Sync%2Fmaster)](http://mrg-beast.csail.mit.edu:8080/job/SE-Sync/job/master/) MRG's super decked out version
 
 [![Build Status](https://travis-ci.org/david-m-rosen/SE-Sync.svg?branch=master)](https://travis-ci.org/david-m-rosen/SE-Sync) Original SE-Sync status
 
