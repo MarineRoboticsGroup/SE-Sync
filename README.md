@@ -25,7 +25,7 @@ The following installation instructions have been verified on Ubuntu 18.04:
 
 *Step 1:*  Install dependencies
 ```
-$ sudo apt-get install build-essential cmake-gui libsuitesparse-dev
+$ sudo apt-get install build-essential cmake-gui liblapack-dev libblas-dev libsuitesparse-dev
 ```
 
 *Step 2:*  Clone the repository
@@ -77,7 +77,7 @@ month = mar,
 year = {2019},
 }
 
-@techreport{Rosen2016SESync,
+@techreport{Rosen2017SESync,
 title = {{SE-Sync}: A Certifiably Correct Algorithm for Synchronization over the Special {Euclidean} Group},
 author = {Rosen, D.M. and Carlone, L. and Bandeira, A.S. and Leonard, J.J.},
 institution = {Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute of Technology},
@@ -94,6 +94,14 @@ booktitle = {Intl. Workshop on the Algorithmic Foundations of Robotics (WAFR)},
 month = dec,
 year = {2016},
 address = {San Francisco, CA},
+}
+
+@unpublished{Rosen2017Computational,
+title = {Computational Enhancements for Certifiably Correct {SLAM}},
+author = {Rosen, D.M. and Carlone, L.},
+note = {Presented at the International Conference on Intelligent Robots and Systems (IROS) in the workshop ``Introspective Methods for Reliable Autonomy"},
+month = sep,
+year = {2017},
 }
 
 
